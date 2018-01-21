@@ -1,4 +1,4 @@
 #!/bin/bash
 docker-compose build
-docker-compose run tutorial bash
+docker-compose run myjenkins
 

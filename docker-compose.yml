@@ -1,12 +1,18 @@
 version: "3"
 
 services:
-  tutorial:
-    image: tutorial/groovy
+  myjenkins:
+    image: tutorial/jenkins
     build:
       context: .
       dockerfile: docker/Dockerfile
-    volumes:
-      - "./scripts:/scripts"
+    expose:
+      - "8080"
+      - "50000"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+
+
 
 
