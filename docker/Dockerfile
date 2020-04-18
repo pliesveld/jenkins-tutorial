@@ -15,7 +15,8 @@ ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
 ENV JENKINS_USER admin
 ENV JENKINS_PASS admin
-ENV JENKINS_URL http://localhost:8080
+ENV JENKINS_URL http://localhost:8080/jenkins
+ENV JENKINS_OPTS "--prefix=/jenkins"
 
 COPY scripts/ /usr/share/jenkins/ref/init.groovy.d/
 
