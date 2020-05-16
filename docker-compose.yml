@@ -4,15 +4,44 @@ services:
   myjenkins:
     image: tutorial/jenkins
     build:
-      context: .
-      dockerfile: docker/Dockerfile
+      context: jenkins/
     expose:
       - "8080"
       - "50000"
     ports:
       - "8080:8080"
       - "50000:50000"
+    volumes:
+#     - ./jenkins_home:/var/jenkins_home
+#     - /private/tmp/build:/private/tmp/build
+#     - ./jenkins/config/var/jenkins_home:/private/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "kubernetes.docker.internal:192.168.1.75"
+    environment:
+      - TZ=America/New_York
+      - DEBIAN_FRONTEND=noninteractive
+      - GIT_USER=git_user
+      - GIT_PASS=git_token
+      - BUILD_UID=0
+      - BUILD_GID=0
+      - AWS_DEFAULT_REGION=us-east-1
+      - DOCKER_REGISTRY=XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com
+      - DOCKER_ORG=test
+      - AWS_ECR_CREDENTIALS=ecr:us-east-1:AWS_CREDENTIALS_ID
 
 
+  stash:
+    build: ./stash
+    image: localstash:latest
+    hostname: stash
+    ports:
+      - "10080:80"
+      - "10443:443"
+    volumes:
+      - "${PWD}/stash/repos:/srv/stash"
+      - "./stash/nginx:/etc/nginx:ro"
 
-
+networks:
+  default:
+    driver: bridge

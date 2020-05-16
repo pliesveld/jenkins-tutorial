@@ -133,3 +133,10 @@ blueocean-jwt:1.22.0
 github-issues:1.2.4
 gravatar:2.1
 mailer:1.32
+groovy:2.2
+rich-text-publisher-plugin:1.4
+pipeline-aws:1.41
+aws-credentials:1.28
+envinject:2.3.0
+envinject-api:1.7
+amazon-ecr:latest
