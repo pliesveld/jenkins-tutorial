@@ -4,6 +4,8 @@ USER root
 
 ENV DEBIAN_FRONTEND noninteractive
 
+COPY trust_ca_certs.sh /tmp/
+RUN bash -xc "bash /tmp/trust_ca_certs.sh"
 
 RUN bash -xc "curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - ; apt-key fingerprint 0EBFCD88"
 
@@ -41,5 +43,10 @@ ENV JENKINS_OPTS "--prefix=/jenkins"
 
 COPY scripts/ /usr/share/jenkins/ref/init.groovy.d/
 
-USER jenkins
+COPY testing /var/testing
+RUN bash -xc "cd /var/testing/ ; java SSLPoke www.google.com 443"
 
+ARG DOCKER_GID=993
+RUN bash -xc "addgroup --gid ${DOCKER_GID} docker_rh && adduser jenkins docker_rh"
+
+USER jenkins

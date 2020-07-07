@@ -44,6 +44,7 @@ url-auth-sso:1.0
 openid:2.4
 google-login:1.6
 junit:1.28
+junit-attachments:latest
 workflow-multibranch:2.21
 github-pullrequest:0.2.8
 github:1.29.5
