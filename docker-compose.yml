@@ -33,7 +33,7 @@ services:
       - DOCKER_REGISTRY=XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com
       - DOCKER_ORG=test
       - AWS_ECR_CREDENTIALS=ecr:us-east-1:AWS_CREDENTIALS_ID
-	AWS_S3_BUCKET=XXXXXXXXXXXX.s3.us-east-1.amazonaws.com
+      - AWS_S3_BUCKET=XXXXXXXXXXXX.s3.us-east-1.amazonaws.com
 
 
 
