@@ -6,6 +6,8 @@ import com.cloudbees.plugins.credentials.domains.*
 import com.cloudbees.plugins.credentials.impl.*
 import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
 import com.cloudbees.jenkins.plugins.awscredentials.*
+import com.cloudbees.hudson.plugins.modeling.*
+
 
 import hudson.plugins.sshslaves.*;
 
