@@ -1,7 +1,7 @@
 # token for the jenkins-tutorial container
 
 USERNAME=admin
-API_TOKEN='115489ba74fff2781d11751c49a8c66152'
+API_TOKEN='1124db709836c296a5c1e4adcfa43650e7'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
