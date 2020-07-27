@@ -1,4 +1,3 @@
-#!/bin/bash
-docker-compose build
+docker-compose up -d --force-recreate --no-deps myjenkins
 docker-compose run myjenkins
 
