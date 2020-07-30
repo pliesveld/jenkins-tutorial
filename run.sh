@@ -1,3 +1,4 @@
-docker-compose up -d --force-recreate --no-deps myjenkins
-docker-compose run myjenkins
-
+docker-compose stop
+docker-compose rm
+docker-compose up -d --force-recreate
+docker-compose logs -f 
